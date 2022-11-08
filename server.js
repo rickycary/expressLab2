@@ -26,7 +26,8 @@ app.get('/greeting/:name', (request, response) => {
 //==============================================================================
 app.get('/tip/:total/:tipPercentage', (request, response) => {
     console.log(request.params)
-    response.send(`Your total is $${request.params.total} and you tipped ${request.params.tipPercentage}%`)
+    response.send(`${request.params.total * (request.params.tipPercentage * .008)}`)
+    // response.send(`Your total is $${request.params.total} and you tipped ${request.params.tipPercentage}%`)
 })
 //==============================================================================
 
@@ -41,6 +42,11 @@ app.get('/magic/:question', (request, response) => {
     `)
 })
 //==============================================================================
+
+// Take one Down and Pass it Around
+app.get('/beer', (request, response) => {
+    response.send('Pass a beer around')
+})
 
 
 // Listen Function
